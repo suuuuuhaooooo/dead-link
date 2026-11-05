@@ -1,0 +1,15 @@
+# robots.txt
+# 這是真的 robots.txt。你在真正的網址列上打出來了。很好。
+#
+# 遊戲裡的每個網站，在真實的網址上也找得到：
+#   /home.local/   /mail.local/   /bbs.local/ ……
+#
+# 有幾頁不在遊戲的視窗裡，而是獨立的檔案：
+
+User-agent: *
+Disallow: /home.local/secret.html
+Disallow: /home.local/daniel.html
+Disallow: /home.local/b/
+Disallow: /home.local/photos/
+
+# —— keeper

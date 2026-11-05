@@ -21,7 +21,7 @@
   };
 
   const App = {
-    history: [], hi: -1, cur: null, loadingTimer: null,
+    cur: null, depth: 0, loadingTimer: null,
 
     /* ---------- 啟動 ---------- */
     init() {
@@ -37,6 +37,10 @@
       $$('[data-author="support"]').forEach(a => { a.href = AUTHOR.support; });
 
       this.bindBrowser();
+      this.bindRealWorld();
+      const route = RealURL.initial();
+      if (route && State.hasSave()) { SFX.unlock(); this.openBrowser(route); }
+      else if (route) RealURL.reset();
       this.tickClock();
       setInterval(() => this.tickClock(), 1000);
     },
@@ -70,7 +74,7 @@
       State.data.player.started = true;
       State.data.player.startedAt = new Date().toISOString();
       State.add('clues', 'prologue');
-      this.history = []; this.hi = -1; this.cur = null;
+      this.cur = null; this.depth = 0;
       this.boot();
     },
 
@@ -180,8 +184,8 @@
     async act(name, el) {
       SFX.click();
       switch (name) {
-        case 'back': if (this.hi > 0) { this.hi--; this.load(this.history[this.hi]); } else SFX.error(); break;
-        case 'fwd': if (this.hi < this.history.length - 1) { this.hi++; this.load(this.history[this.hi]); } else SFX.error(); break;
+        case 'back': if (this.depth > 1) { this.depth--; history.back(); } else SFX.error(); break;
+        case 'fwd': history.forward(); break;
         case 'reload': if (this.cur) this.load(this.cur.url); break;
         case 'home': this.navigate('home.local/'); break;
         case 'source': this.viewSource(); break;
@@ -217,9 +221,8 @@
       const { host, path } = Router.parse(input);
       const url = host + '/' + path;
       if (this.cur && this.cur.url === url) { this.load(url); return; }
-      this.history = this.history.slice(0, this.hi + 1);
-      this.history.push(url);
-      this.hi = this.history.length - 1;
+      RealURL.push(url, !this.cur);
+      this.depth = this.cur ? (this.depth || 1) + 1 : 1;
       this.load(url);
     },
 
@@ -416,7 +419,7 @@
       if (el) el.classList.add('noted');
       if (State.add('clues', id)) {
         SFX.ding();
-        UI.toast(`✎ 已記下線索：<b>${c.title}</b>`);
+        UI.toast(`已記下線索：<b>${c.title}</b>`);
         this.renderNotebook();
         this.flashBadge();
       }
@@ -449,7 +452,7 @@
       if (!ch) {
         html = `<div class="ch-card end"><div class="ch-code">ARCHIVE NO. 2003-0817</div><div class="ch-name">MAINTAINER: YOU</div></div>
 <div class="goal-txt">調查結束了。</div>
-<div class="goal-where">謎題 ${done} / ${total}　·　線索 ${S.clues.length} / ${Object.keys(CLUES).length}</div>
+<div class="goal-where">謎題 ${done} / ${total}　·　線索 ${S.clues.length} / ${Object.keys(CLUES).length}　·　隱藏頁面 ${S.secretsFound.length} / ${Object.keys(SECRETS).length}</div>
 <div class="goal-tip">網站還在運作。<br>回首頁看看——它記得你來過。<br><br>有些事情，它到現在都還沒告訴你：<br>・窗戶玻璃上的，是誰？<br>・Daniel 後來去了哪裡？</div>`;
       } else {
         const active = PuzzleEngine.activePuzzle(ch);
@@ -457,7 +460,7 @@
           const p = PUZZLES[id];
           const ok = PuzzleEngine.isSolved(id);
           const cls = ok ? 'ok' : id === active ? 'on' : '';
-          return `<li class="${cls}"><span class="mk">${ok ? '✔' : id === active ? '▸' : '○'}</span>${p.optional && !ok ? '（隱藏）？？？' : p.title}</li>`;
+          return `<li class="${cls}"><span class="mk">${ok ? '■' : id === active ? '►' : '□'}</span>${p.optional && !ok ? '（隱藏）？？？' : p.title}</li>`;
         }).join('');
         let hintBlock = '';
         if (active) {
@@ -471,8 +474,9 @@ ${used < 3 ? `<button class="w-btn small" data-hint="${active}">${used ? '再給
 <div class="goal-txt"><b>目標：</b>${ch.goal}</div>
 <ul class="pz-list">${items}</ul>
 ${hintBlock}
+<div class="goal-prog">隱藏頁面 <b>${S.secretsFound.length}</b> / ${Object.keys(SECRETS).length}　<span class="dn-small">（網址列可以亂打）</span></div>
 <div class="goal-prog">全部謎題 <b>${done}</b> / ${total}<div class="w-progress"><div style="width:${done / total * 100}%"></div></div></div>
-${ch.id <= 2 ? `<div class="goal-tip">調查小技巧<br>・可疑的文字或圖片，點一下就能記到筆記本。<br>・瀏覽器上方的「原始碼」也是網頁的一部分。<br>・網址列可以直接輸入路徑。<br>・答錯不會失去任何進度。</div>` : ''}`;
+${ch.id <= 2 ? `<div class="goal-tip">調查小技巧<br>・可疑的文字或圖片，點一下就能記到筆記本。<br>・瀏覽器上方的「原始碼」也是網頁的一部分。<br>・網址列可以直接輸入路徑。有些頁面沒有任何連結指向它。<br>・答錯不會失去任何進度。</div>` : ''}`;
       }
       $('#goal-panel').innerHTML = html;
     },
@@ -530,6 +534,8 @@ ${ch.id <= 2 ? `<div class="goal-tip">調查小技巧<br>・可疑的文字或�
       this.glitch(1200);
       await wait(1300);
       this.show('screen-ending');
+      this.cur = null;
+      RealURL.reset();
       const out = $('#end-log');
       out.textContent = '';
       $('#end-credits').hidden = true;
@@ -563,7 +569,7 @@ ${ch.id <= 2 ? `<div class="goal-tip">調查小技巧<br>・可疑的文字或�
       const start = State.data.player.startedAt ? new Date(State.data.player.startedAt) : null;
       const mins = start ? Math.max(1, Math.round((Date.now() - start.getTime()) / 60000)) : 0;
       const h = PuzzleEngine.total();
-      $('#end-stats').innerHTML = `謎題 ${PuzzleEngine.solvedCount()} / ${h}　·　線索 ${State.data.clues.length} / ${Object.keys(CLUES).length}　·　提示 ${Object.values(State.data.hintsUsed).reduce((a, b) => a + b, 0)} 次${mins ? `　·　調查時間 ${mins >= 60 ? Math.floor(mins / 60) + ' 小時 ' : ''}${mins % 60} 分鐘` : ''}`;
+      $('#end-stats').innerHTML = `謎題 ${PuzzleEngine.solvedCount()} / ${h}　·　線索 ${State.data.clues.length} / ${Object.keys(CLUES).length}　·　隱藏頁面 ${State.data.secretsFound.length} / ${Object.keys(SECRETS).length}　·　提示 ${Object.values(State.data.hintsUsed).reduce((a, b) => a + b, 0)} 次${mins ? `　·　調查時間 ${mins >= 60 ? Math.floor(mins / 60) + ' 小時 ' : ''}${mins % 60} 分鐘` : ''}`;
       $('#end-credits').hidden = false;
       SFX.success();
     },
@@ -572,6 +578,86 @@ ${ch.id <= 2 ? `<div class="goal-tip">調查小技巧<br>・可疑的文字或�
       this.inEnding = false;
       if (where === 'site') { this.openBrowser('home.local/'); }
       else { this.refreshTitle(); this.show('screen-title'); }
+    },
+
+    /* ---------- 真實世界：瀏覽器網址、分頁、標籤標題 ---------- */
+    bindRealWorld() {
+      // 真實的上一頁／下一頁
+      window.addEventListener('popstate', e => {
+        if ($('#screen-browser').hidden) return;
+        const route = (e.state && e.state.route) || RealURL.initial();
+        if (route) this.load(route);
+        else this.closeBrowser(true);
+      });
+
+      // 切到別的分頁時，標籤標題會叫你回來
+      let leftAt = 0;
+      document.addEventListener('visibilitychange', () => {
+        if ($('#screen-browser').hidden) return;
+        if (document.hidden) {
+          leftAt = Date.now();
+          this.titleBefore = document.title;
+          document.title = '……回來。';
+          setFavicon('red');
+          this.awayTimer = setTimeout(() => { document.title = '他還在這裡'; }, 8000);
+        } else {
+          clearTimeout(this.awayTimer);
+          document.title = this.titleBefore || document.title;
+          setFavicon('blue');
+          const sec = Math.round((Date.now() - leftAt) / 1000);
+          this.drainSide();
+          if (sec >= 15 && Date.now() - (this.lastAwayToast || 0) > 180000) {
+            this.lastAwayToast = Date.now();
+            setTimeout(() => UI.toast(`你離開了 ${sec} 秒。<br>它一直在這裡。`, 3200), 600);
+          }
+        }
+      });
+
+      // 其他分頁（真實的小網頁）傳回來的訊息
+      window.addEventListener('storage', e => { if (e.key === 'deadlink.side') this.drainSide(); });
+      window.addEventListener('focus', () => this.drainSide());
+      this.drainSide(true);
+    },
+
+    openSide(rel) {
+      SFX.click();
+      const mobile = matchMedia('(max-width: 820px), (pointer: coarse)').matches;
+      if (!mobile) {
+        const w = window.open(RealURL.file(rel), '_blank');
+        if (w) return;
+      }
+      const wrap = document.createElement('div');
+      wrap.className = 'modal side-modal';
+      wrap.innerHTML = `<div class="xp-window dlg side-win" role="dialog" aria-modal="true">
+  <div class="xp-title"><span class="xp-title-text">新視窗 - DEAD LINK BROWSER</span><span class="xp-title-btns"><button class="tbtn x" data-close aria-label="關閉">×</button></span></div>
+  <iframe src="${RealURL.file(rel)}" title="新視窗"></iframe>
+  <div class="dlg-btns"><button class="w-btn primary" data-close>關閉視窗</button></div>
+</div>`;
+      document.getElementById('modal-layer').appendChild(wrap);
+      const close = () => { wrap.remove(); this.drainSide(); };
+      wrap.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => { SFX.click(); close(); }));
+      wrap.addEventListener('click', e => { if (e.target === wrap) close(); });
+      UI._escClose = close;
+    },
+
+    drainSide(silent) {
+      let q;
+      try { q = JSON.parse(localStorage.getItem('deadlink.side') || '[]'); } catch (e) { q = []; }
+      if (!q.length) return;
+      localStorage.setItem('deadlink.side', '[]');
+      q.forEach(ev => {
+        if (ev.secret && window.SECRETS && SECRETS[ev.secret]) SecretFound(ev.secret, silent);
+        if (silent || $('#screen-browser').hidden) return;
+        if (ev.id === 'daniel') {
+          setTimeout(() => {
+            this.glitch(900);
+            UI.toast('另一個分頁裡，有東西在看你。', 3600);
+            $('#win-title').textContent = '我也打開了一個分頁 - DEAD LINK BROWSER v1.0';
+            setTimeout(() => this.setTitle(this.pageTitle), 2500);
+          }, 500);
+        }
+        if (ev.id === 'photo') setTimeout(() => UI.toast('你盯著那張照片看了很久。<br>它也是。', 3600), 500);
+      });
     },
 
     /* ---------- 選單 ---------- */
@@ -631,6 +717,8 @@ ${ch.id <= 2 ? `<div class="goal-tip">調查小技巧<br>・可疑的文字或�
       this.closeDrawer();
       this.refreshTitle();
       this.show('screen-title');
+      this.cur = null;
+      RealURL.reset();
       document.title = 'PROJECT: DEAD LINK';
     },
 
@@ -646,6 +734,14 @@ ${ch.id <= 2 ? `<div class="goal-tip">調查小技巧<br>・可疑的文字或�
     if (e.target.id === 'opt-crt') { State.data.settings.crt = e.target.checked; State.save(); App.applySettings(); }
   });
 
+  // 分支小網頁：電腦開真的新分頁；手機改成遊戲裡的小視窗（避免在 App 內建瀏覽器裡關不掉）
+  document.addEventListener('click', e => {
+    const a = e.target.closest('[data-side]');
+    if (!a) return;
+    e.preventDefault(); e.stopPropagation();
+    App.openSide(a.dataset.side);
+  }, true);
+
   // 對話框裡的外部連結（作者、贊助）要能正常開啟
   document.addEventListener('click', e => {
     const a = e.target.closest('.modal a[target=_blank]');
@@ -653,6 +749,11 @@ ${ch.id <= 2 ? `<div class="goal-tip">調查小技巧<br>・可疑的文字或�
   }, true);
 
   function pad(n) { return String(n).padStart(2, '0'); }
+
+  function setFavicon(color) {
+    const l = document.getElementById('favicon');
+    if (l) l.href = color === 'red' ? 'assets/icons/favicon-red-32.png' : 'assets/icons/favicon-32.png';
+  }
   function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
 
   window.App = App;

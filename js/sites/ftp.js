@@ -25,7 +25,7 @@
   };
 
   const TXT = {
-    'readme.txt': '這裡是 Daniel 的備份空間（朋友限定）。\n\n/backup   網站備份。keeper 每天會自動備份，檔名 site_backup_日期.zip\n/photos   相機裡的原始照片（沒縮過，撥接的人慢慢等）\n/misc     雜物\n\n要還原網站請用「還原精靈」。',
+    'readme.txt': '這裡是 Daniel 的備份空間（朋友限定）。\n\n/backup   網站備份。keeper 每天會自動備份，檔名 site_backup_日期.zip\n/photos   相機裡的原始照片（沒縮過，撥接的人慢慢等）\n/misc     雜物\n\n要還原網站請用「還原精靈」。\n\n（如果你在找我的指令紀錄，它是隱藏檔。）',
     'todo.txt': '[x] 把 keeper 的論壇帳號刪掉\n[x] 停掉自動備份（它會把自己一起備份進去）\n[x] 手動備份一份，放在它不會去看的地方，改個不起眼的名字\n[x] 壓縮密碼用照片裡的東西。它看得懂文字，看不懂照片。\n[ ] 寄信給 kei\n[ ] 拔掉電話線\n[ ] 不要再打開這個網站',
     'links.txt': '好站連結備份\n\nhttp://bbs.local/      深夜論壇\nhttp://chat.local/     聊天室\nhttp://terminal.local/ 主機終端機（要密碼）\nhttp://admin.local/    網站後台（不要讓它知道我知道）'
   };
@@ -72,7 +72,8 @@
     '': {
       render(ctx) {
         if (!solved('p5a')) return loginPage();
-        return { title: 'ftp://ftp.local/', html: `<div class="ftp-wrap">${crumb('')}<table class="ftp-table" cellspacing="0"><tr><th>名稱</th><th>大小</th><th>修改時間</th></tr>
+        return { title: 'ftp://ftp.local/', html: `<!-- 以 . 開頭的檔案不會列出。/incoming 是訪客上傳區。 -->
+<div class="ftp-wrap">${crumb('')}<table class="ftp-table" cellspacing="0"><tr><th>名稱</th><th>大小</th><th>修改時間</th></tr>
 ${Object.keys(DIRS).map(d => `<tr><td><span class="ftp-ico dir"></span><a href="#" data-go="${F}/${d}">${d}/</a></td><td class="r">—</td><td class="c">—</td></tr>`).join('')}
 </table>
 <div class="ftp-tools"><a href="#" data-go="${F}/restore" class="w-btn">還原精靈…</a></div>
@@ -91,7 +92,7 @@ ${Object.keys(DIRS).map(d => `<tr><td><span class="ftp-ico dir"></span><a href="
 <p>步驟 2／2：此壓縮檔受密碼保護。</p>
 <form data-form="puzzle" data-pid="p5c" class="bbs-form"><label>壓縮密碼：</label><input type="text" name="answer" autocomplete="off" autocapitalize="off" spellcheck="false"> <button class="w-btn small" type="submit">解壓縮</button><div class="wm-msg" data-msg></div></form>`;
         } else {
-          body = `<p>✔ 還原完成：photos/old_photos.zip → /restored/（214 個檔案）</p>
+          body = `<p>還原完成：photos/old_photos.zip → /restored/（214 個檔案）</p>
 <p>值得注意的檔案：</p>
 <ul class="ftp-list">
   <li><a href="#" data-go="${F}/restored/entry_1123">diary/entry_1123.txt</a>　<span class="dn-small">（未損毀的版本）</span></li>

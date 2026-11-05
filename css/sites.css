@@ -1,6 +1,6 @@
 /* ================= home.local — Daniel's Room ================= */
 .site-home {
-  color: #d8e0f0; font: 13px/1.75 Arial, "PMingLiU", "新細明體", sans-serif;
+  color: #d8e0f0; font: 13px/1.75 Arial, "DL Pixel", sans-serif;
   background-color: #0c1838;
   background-image:
     radial-gradient(circle at 25% 30%, rgba(255,255,255,.5) 0 1px, transparent 1.5px),
@@ -16,13 +16,13 @@
 .site-home a:hover { color: #ffde59; }
 .dn-banner { max-width: 760px; margin: 0 auto; text-align: center; padding: 10px 0 6px; }
 .dn-logo {
-  display: block; font: italic bold 34px/1.1 "Times New Roman", Georgia, serif; color: #fff4c2;
+  display: block; font: italic bold 34px/1.1 "Times New Roman", Georgia, "DL Pixel", serif; color: #fff4c2;
   text-shadow: 2px 2px 0 #b8420e, 4px 4px 0 rgba(0,0,0,.6);
 }
-.dn-sub { display: block; font: 13px "PMingLiU", serif; color: #9fb0d4; letter-spacing: .15em; margin-top: 4px; }
+.dn-sub { display: block; font: 13px "DL Pixel", serif; color: #9fb0d4; letter-spacing: .15em; margin-top: 4px; }
 .dn-marquee {
   max-width: 760px; margin: 8px auto 12px; overflow: hidden; white-space: nowrap; background: #000; color: #ffde59;
-  border: 1px solid #3a4f80; font: 12px "PMingLiU", serif; padding: 2px 0;
+  border: 1px solid #3a4f80; font: 12px "DL Pixel", serif; padding: 2px 0;
 }
 .dn-marquee span { display: inline-block; padding-left: 100%; animation: marquee 22s linear infinite; }
 .dn-layout { max-width: 760px; width: 100%; margin: 0 auto; border: 2px outset #4a5f90; background: rgba(5,12,32,.82); border-collapse: separate; }
@@ -33,39 +33,39 @@
 .dn-offline { color: #888; } .dn-online { color: #5fff8f; }
 .dn-main { vertical-align: top; padding: 12px 18px 18px; }
 .dn-h {
-  font: bold 20px "Times New Roman", Georgia, serif; color: #fff4c2; margin: 4px 0 12px;
+  font: bold 20px "Times New Roman", Georgia, "DL Pixel", serif; color: #fff4c2; margin: 4px 0 12px;
   border-bottom: 1px solid #4a5f90; padding-bottom: 4px;
 }
 .dn-h::before { content: "◆ "; color: #ff7a3d; font-size: 14px; vertical-align: middle; }
 .dn-update { margin: 0 0 6px; }
 .dn-update b { color: #ff9a6b; }
 .dn-news { margin: 0 0 16px; padding-left: 20px; }
-.dn-news .d { color: #8fa0c8; font-family: "Courier New", monospace; margin-right: 6px; }
-.dn-new { color: #ff3b3b; font: bold 11px Arial; }
+.dn-news .d { color: #8fa0c8; font-family: "Courier New", "DL Pixel", monospace; margin-right: 6px; }
+.dn-new { color: #ff3b3b; font: bold 11px Arial, "DL Pixel"; }
 .dn-counter-wrap { margin: 18px 0 4px; }
 .dn-counter { display: inline-flex; gap: 1px; padding: 2px; background: #222; border: 2px inset #666; cursor: help; vertical-align: middle; }
-.dn-counter i { font: bold 15px/1 "Courier New", monospace; font-style: normal; color: #39ff6a; background: #000; padding: 3px 4px; text-shadow: 0 0 4px #1fbf48; }
-.dn-lastvisit { font: 11px "Courier New", monospace; color: #8fa0c8; }
+.dn-counter i { font: bold 15px/1 "Courier New", "DL Pixel", monospace; font-style: normal; color: #39ff6a; background: #000; padding: 3px 4px; text-shadow: 0 0 4px #1fbf48; }
+.dn-lastvisit { font: 11px "Courier New", "DL Pixel", monospace; color: #8fa0c8; }
 .dn-construct { margin: 18px 0 10px; display: inline-flex; align-items: center; gap: 8px; color: #ffde59; font-weight: bold; font-size: 12px; }
 .dn-construct .stripe { width: 46px; height: 12px; background: repeating-linear-gradient(-45deg, #f5c400 0 6px, #111 6px 12px); }
 .dn-small { font-size: 11.5px; color: #8fa0c8; }
 .dn-foot { max-width: 760px; margin: 12px auto 0; text-align: center; font-size: 11px; color: #6f80a8; }
 .dn-entry { margin-bottom: 18px; border-left: 3px solid #3a4f80; padding-left: 10px; }
-.dn-date { font: bold 12px "Courier New", monospace; color: #ffb37a; }
+.dn-date { font: bold 12px "Courier New", "DL Pixel", monospace; color: #ffb37a; }
 .dn-txt { margin-top: 2px; }
 .dn-corrupt { color: #5a6a90; letter-spacing: -1px; }
-.dn-errline { margin-top: 4px; font: 11px "Courier New", monospace; color: #ff5f5f; }
+.dn-errline { margin-top: 4px; font: 11px "Courier New", "DL Pixel", monospace; color: #ff5f5f; }
 .dn-gallery td { vertical-align: top; }
 .dn-thumb { width: 140px; text-align: center; padding: 6px; background: rgba(0,0,0,.35); border: 1px solid #3a4f80; }
 .dn-thumb canvas { width: 120px; height: 90px; display: block; margin: 0 auto 4px; border: 2px solid #fff; image-rendering: auto; }
-.dn-thumb .fn { font: 11px "Courier New", monospace; color: #b0bedc; word-break: break-all; }
+.dn-thumb .fn { font: 11px "Courier New", "DL Pixel", monospace; color: #b0bedc; word-break: break-all; }
 .dn-thumb .cap { font-size: 11px; color: #8fa0c8; line-height: 1.4; min-height: 2.8em; }
 .dn-gbform { padding: 8px; border: 1px dashed #3a4f80; margin-bottom: 14px; font-size: 12px; }
 .dn-gbform input, .dn-gbform select, .dn-gbform textarea { background: #1b2650; color: #8fa0c8; border: 1px inset #4a5f90; }
 .dn-gbform textarea { width: 100%; height: 44px; margin: 6px 0; resize: none; }
 .dn-post { width: 100%; margin-bottom: 10px; border: 1px solid #3a4f80; background: rgba(20,32,70,.5); }
 .dn-post .who { font-weight: bold; color: #ffde59; padding: 3px 8px; background: rgba(58,79,128,.4); }
-.dn-post .when { text-align: right; font: 11px "Courier New", monospace; color: #8fa0c8; padding: 3px 8px; background: rgba(58,79,128,.4); }
+.dn-post .when { text-align: right; font: 11px "Courier New", "DL Pixel", monospace; color: #8fa0c8; padding: 3px 8px; background: rgba(58,79,128,.4); }
 .dn-post .msg { padding: 6px 8px; }
 .dn-post.ghost { border-color: #5a2030; background: rgba(40,0,10,.35); }
 .dn-post.ghost .who { color: #ff6b6b; background: rgba(90,20,30,.4); }
@@ -83,11 +83,11 @@
 .site-mail [data-clue].noted { outline-color: rgba(33,93,198,.4); }
 
 /* ================= mail.local — OldNet Webmail ================= */
-.site-mail { background: #fff; color: #000; font: 12px/1.6 Arial, "PMingLiU", sans-serif; min-height: 100%; }
+.site-mail { background: #fff; color: #000; font: 12px/1.6 Arial, "DL Pixel", sans-serif; min-height: 100%; }
 .site-mail a { color: #00c; }
 .wm-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; padding: 6px 12px; background: #336; color: #ccd; }
 .wm-top a { color: #ffc; }
-.wm-logo { font: 18px Georgia, serif; color: #fff; } .wm-logo b { color: #fc6; }
+.wm-logo { font: 18px Georgia, "DL Pixel", serif; color: #fff; } .wm-logo b { color: #fc6; }
 .wm-layout { width: 100%; border-collapse: collapse; }
 .wm-side { width: 150px; vertical-align: top; background: #eef; border-right: 1px solid #99c; padding: 10px 8px; }
 .wm-side a { display: block; padding: 3px 6px; text-decoration: none; }
@@ -103,23 +103,23 @@
 .wm-list tr[data-go] { cursor: pointer; }
 .wm-list tr[data-go]:hover td { background: #ffc; }
 .wm-list tr.unread td { font-weight: bold; }
-.wm-list .dt { font-family: "Courier New", monospace; white-space: nowrap; }
+.wm-list .dt { font-family: "Courier New", "DL Pixel", monospace; white-space: nowrap; }
 .wm-read { padding: 10px 14px; }
 .wm-hdr { border: 1px solid #99c; background: #f6f6fb; margin-bottom: 12px; }
 .wm-hdr th { text-align: left; font-weight: normal; color: #555; padding: 2px 10px; white-space: nowrap; }
 .wm-hdr td { padding: 2px 10px; }
-.wm-body { font: 14px/1.9 "PMingLiU", "新細明體", serif; }
+.wm-body { font: 14px/1.9 "DL Pixel", serif; }
 .wm-locked, .wm-empty { padding: 30px; text-align: center; color: #666; }
 .site-mail .dn-small { color: #777; }
 
 .wm-login { display: flex; justify-content: center; padding: 40px 12px; background: linear-gradient(#dde, #fff 200px); min-height: 100%; }
 .wm-login-box { width: 380px; max-width: 100%; border: 1px solid #669; background: #fff; box-shadow: 3px 3px 0 #ccd; }
-.wm-login-head { background: #336; color: #fff; font: 20px Georgia, serif; padding: 10px 14px; }
+.wm-login-head { background: #336; color: #fff; font: 20px Georgia, "DL Pixel", serif; padding: 10px 14px; }
 .wm-login-head b { color: #fc6; }
 .wm-form { padding: 16px 14px 8px; }
 .wm-form .row { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
 .wm-form label { width: 3em; color: #444; }
-.wm-form input { width: 150px; height: 24px; border: 1px solid #7f9db9; padding: 1px 4px; font: 13px Arial, sans-serif; }
+.wm-form input { width: 150px; height: 24px; border: 1px solid #7f9db9; padding: 1px 4px; font: 13px Arial, "DL Pixel", sans-serif; }
 .wm-form input[readonly] { background: #eee; color: #555; }
 .wm-form .dom { color: #666; }
 .wm-hintq { background: #ffffe1; border: 1px solid #c9c38a; padding: 8px 10px; margin: 6px 0; }
@@ -128,12 +128,12 @@
 .wm-login-foot { border-top: 1px solid #dde; padding: 8px 14px; font-size: 11px; color: #777; background: #f6f6fb; }
 
 /* ================= 錯誤頁 ================= */
-.site-error { background: #fff; color: #000; font: 12px/1.6 Tahoma, Arial, sans-serif; padding: 18px 22px; min-height: 100%; }
+.site-error { background: #fff; color: #000; font: 12px/1.6 Tahoma, Arial, "DL Pixel", sans-serif; padding: 18px 22px; min-height: 100%; }
 .site-error a { color: #00c; }
 .ie-err { max-width: 560px; }
 .ie-err-head { display: flex; align-items: center; gap: 12px; }
-.ie-err-head h1 { font: bold 18px Tahoma, Arial, sans-serif; color: #000; margin: 0; }
-.ie-err-ico { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font: bold 20px Georgia, serif; background: radial-gradient(circle at 35% 30%, #8fbaff, #1f5fd0); }
+.ie-err-head h1 { font: bold 18px Tahoma, Arial, "DL Pixel", sans-serif; color: #000; margin: 0; }
+.ie-err-ico { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font: bold 20px Georgia, "DL Pixel", serif; background: radial-gradient(circle at 35% 30%, #8fbaff, #1f5fd0); }
 .ie-err-ico.warn { background: radial-gradient(circle at 35% 30%, #ffe27a, #d69a00); color: #000; }
 .ie-err-ico.stop { background: radial-gradient(circle at 35% 30%, #ff8f7a, #c4200a); }
 .ie-err hr { margin: 12px 0; }
@@ -141,22 +141,22 @@
 
 /* webmail 追加 */
 .wm-search { display: flex; gap: 4px; flex: 1; max-width: 300px; }
-.wm-search input { flex: 1; min-width: 0; height: 22px; border: 1px solid #99c; padding: 1px 4px; font: 12px Arial, sans-serif; }
+.wm-search input { flex: 1; min-width: 0; height: 22px; border: 1px solid #99c; padding: 1px 4px; font: 12px Arial, "DL Pixel", sans-serif; }
 .wm-inline { margin-top: 14px; }
 .wm-inline input { width: 160px; height: 24px; border: 1px solid #7f9db9; padding: 1px 4px; margin: 6px 0; }
-.wm-pre { margin: 10px; padding: 10px; background: #f6f6f0; border: 1px solid #ccc; font: 12px/1.6 "Courier New", monospace; white-space: pre-wrap; word-break: break-all; }
+.wm-pre { margin: 10px; padding: 10px; background: #f6f6f0; border: 1px solid #ccc; font: 12px/1.6 "Courier New", "DL Pixel", monospace; white-space: pre-wrap; word-break: break-all; }
 
 /* 共用小表單 */
 .bbs-form { margin-top: 10px; }
 .bbs-form label { display: block; margin-bottom: 4px; }
-.bbs-form input { width: 220px; max-width: 100%; height: 26px; border: 1px solid #7f9db9; padding: 1px 5px; font: 13px Arial, sans-serif; }
+.bbs-form input { width: 220px; max-width: 100%; height: 26px; border: 1px solid #7f9db9; padding: 1px 5px; font: 13px Arial, "DL Pixel", sans-serif; }
 
 /* ================= bbs.local ================= */
-.site-bbs { background: #e8ecf4; color: #222; font: 13px/1.6 "PMingLiU", "新細明體", Arial, sans-serif; min-height: 100%; }
+.site-bbs { background: #e8ecf4; color: #222; font: 13px/1.6 Arial, "DL Pixel", sans-serif; min-height: 100%; }
 .site-bbs a { color: #1a3d8f; }
 .bbs-top { background: linear-gradient(#26375e, #142140); color: #cfd8ee; padding: 10px 14px 6px; border-bottom: 3px solid #6a7fb3; }
-.bbs-logo { font: bold 24px "Times New Roman", serif; color: #fff; letter-spacing: .1em; }
-.bbs-logo small { font: 11px Tahoma, sans-serif; margin-left: 10px; color: #8ea2d4; letter-spacing: .3em; }
+.bbs-logo { font: bold 24px "Times New Roman", "DL Pixel", serif; color: #fff; letter-spacing: .1em; }
+.bbs-logo small { font: 11px Tahoma, "DL Pixel", sans-serif; margin-left: 10px; color: #8ea2d4; letter-spacing: .3em; }
 .bbs-menu { margin-top: 4px; font-size: 12px; }
 .bbs-menu a { color: #ffe08a; }
 .bbs-wrap { max-width: 860px; margin: 0 auto; padding: 12px; }
@@ -180,23 +180,23 @@
 .bbs-user.dead .bbs-utitle, .bbs-user.dead .bbs-umeta { color: #999; }
 .bbs-pbody { vertical-align: top; padding: 8px 12px; }
 .bbs-pmeta { color: #888; font-size: 11px; border-bottom: 1px dotted #ccc; margin-bottom: 6px; }
-.bbs-sig { margin-top: 10px; color: #888; font: 12px "Courier New", monospace; }
-.bbs-morse { font: bold 18px/1.3 "Courier New", monospace; letter-spacing: .25em; }
+.bbs-sig { margin-top: 10px; color: #888; font: 12px "Courier New", "DL Pixel", monospace; }
+.bbs-morse { font: bold 18px/1.3 "Courier New", "DL Pixel", monospace; letter-spacing: .25em; }
 .bbs-dot { font-weight: bold; color: #c00; }
 .bbs-foot { text-align: center; color: #777; font-size: 11px; padding: 14px; }
 
 /* ================= chat.local ================= */
-.site-chat { background: #dfe9f7; color: #111; font: 12px/1.6 Tahoma, Arial, "PMingLiU", sans-serif; min-height: 100%; }
+.site-chat { background: #dfe9f7; color: #111; font: 12px/1.6 Tahoma, Arial, "DL Pixel", sans-serif; min-height: 100%; }
 .site-chat a { color: #0b4fb0; }
 .ms-login { display: flex; justify-content: center; padding: 40px 12px; }
 .ms-box { width: 340px; max-width: 100%; background: #fff; border: 1px solid #7c9ccc; box-shadow: 3px 3px 0 #b9cbe6; }
-.ms-head { background: linear-gradient(#fff, #c9dbf4); padding: 14px; font: 18px Tahoma, sans-serif; color: #234; position: relative; }
+.ms-head { background: linear-gradient(#fff, #c9dbf4); padding: 14px; font: 18px Tahoma, "DL Pixel", sans-serif; color: #234; position: relative; }
 .ms-head b { color: #0b4fb0; }
 .ms-head small { display: block; font-size: 11px; color: #567; }
 .ms-buddy { display: inline-block; width: 14px; height: 18px; border-radius: 7px 7px 3px 3px; background: #4caf50; margin-right: 2px; vertical-align: middle; }
 .ms-buddy.b2 { background: #2f7de1; margin-right: 8px; }
 .ms-form { padding: 14px; display: flex; flex-direction: column; gap: 4px; }
-.ms-form input { height: 26px; border: 1px solid #7f9db9; padding: 1px 5px; font: 13px Arial, sans-serif; }
+.ms-form input { height: 26px; border: 1px solid #7f9db9; padding: 1px 5px; font: 13px Arial, "DL Pixel", sans-serif; }
 .ms-form input[readonly], .ms-form input:disabled { background: #eee; color: #666; }
 .ms-form .w-btn { align-self: flex-start; margin-top: 8px; }
 .ms-hint { color: #888; font-size: 11px; }
@@ -215,7 +215,7 @@
 .ms-welcome { padding: 20px; }
 .ms-logh { padding-bottom: 6px; border-bottom: 1px solid #c9dbf4; margin-bottom: 8px; color: #345; }
 .ms-line { padding: 2px 0; }
-.ms-line .t { color: #999; font-family: "Courier New", monospace; }
+.ms-line .t { color: #999; font-family: "Courier New", "DL Pixel", monospace; }
 .ms-line b.k { color: #c0306a; } .ms-line b.d { color: #0b4fb0; }
 .ms-sys { color: #999; margin-top: 10px; font-style: italic; }
 .ms-sealed { padding: 20px 10px; }
@@ -225,13 +225,13 @@
 .ms-off.ghost .h { color: #f66; }
 
 /* ================= ftp.local ================= */
-.site-ftp { background: #fff; color: #000; font: 13px/1.6 "Courier New", monospace; min-height: 100%; }
+.site-ftp { background: #fff; color: #000; font: 13px/1.6 "Courier New", "DL Pixel", monospace; min-height: 100%; }
 .site-ftp a { color: #00c; }
 .ftp-wrap { padding: 12px 16px; }
-.ftp-banner { background: #000; color: #c0c0c0; padding: 10px; margin: 12px 16px; font: 12px/1.6 "Courier New", monospace; white-space: pre-wrap; }
+.ftp-banner { background: #000; color: #c0c0c0; padding: 10px; margin: 12px 16px; font: 12px/1.6 "Courier New", "DL Pixel", monospace; white-space: pre-wrap; }
 .ftp-banner.small { margin: 14px 0 0; }
 .ftp-form { margin: 0 16px; padding: 10px; border: 1px solid #999; background: #f4f4f4; }
-.ftp-form input { width: 120px; height: 24px; border: 1px solid #7f9db9; font: 13px "Courier New", monospace; }
+.ftp-form input { width: 120px; height: 24px; border: 1px solid #7f9db9; font: 13px "Courier New", "DL Pixel", monospace; }
 .ftp-path { font-weight: bold; padding: 4px 6px; background: #e8e8e8; border: 1px solid #bbb; margin-bottom: 6px; word-break: break-all; }
 .ftp-table { width: 100%; border-collapse: collapse; }
 .ftp-table th { text-align: left; border-bottom: 2px solid #666; padding: 3px 6px; font-weight: bold; }
@@ -242,9 +242,9 @@
 .ftp-ico.zip { background: repeating-linear-gradient(90deg, #ddd 0 3px, #888 3px 4px); }
 .ftp-ico.jpg { background: linear-gradient(#7fb2ff 50%, #4c8a3a 50%); }
 .ftp-tools { margin: 14px 0; }
-.ftp-tools .w-btn { display: inline-block; text-decoration: none; color: #000; font-family: Tahoma, sans-serif; }
+.ftp-tools .w-btn { display: inline-block; text-decoration: none; color: #000; font-family: Tahoma, "DL Pixel", sans-serif; }
 .ftp-meta { color: #666; margin-bottom: 8px; font-size: 12px; }
-.ftp-txt { background: #fffff4; border: 1px solid #ccc; padding: 12px; white-space: pre-wrap; word-break: break-word; font: 13px/1.8 "Courier New", "PMingLiU", monospace; }
+.ftp-txt { background: #fffff4; border: 1px solid #ccc; padding: 12px; white-space: pre-wrap; word-break: break-word; font: 13px/1.8 "Courier New", "DL Pixel", monospace; }
 .ftp-txt.code { background: #0e1220; color: #b8d0ff; }
 .ftp-img { background: #000; padding: 6px; max-width: 480px; }
 .ftp-img canvas { display: block; width: 100%; height: auto; aspect-ratio: 4/3; }
@@ -253,7 +253,7 @@
 .ftp-exif td { padding: 3px 8px; }
 .ftp-exif tr:first-child th { font-weight: bold; }
 .ftp-zip { padding: 20px; border: 1px dashed #999; }
-.ftp-wizard { border: 2px outset #ccc; background: #ece9d8; font: 12px/1.7 Tahoma, sans-serif; max-width: 560px; }
+.ftp-wizard { border: 2px outset #ccc; background: #ece9d8; font: 12px/1.7 Tahoma, "DL Pixel", sans-serif; max-width: 560px; }
 .ftp-wiz-head { background: #fff; padding: 10px 14px; font-weight: bold; border-bottom: 1px solid #aaa; }
 .ftp-wizard > p, .ftp-wizard > form, .ftp-wizard > ul { margin: 12px 14px; }
 .ftp-list li { margin-bottom: 4px; }
@@ -261,7 +261,7 @@
 /* ================= terminal.local ================= */
 .page.site-term { background: #000; height: 100%; display: flex; }
 .tm { flex: 1; display: flex; flex-direction: column; min-height: 0; }
-.tm-screen { flex: 1; min-height: 0; padding: 10px 12px; color: #c8c8c8; font: 13px/1.5 "Courier New", monospace; overflow: auto; cursor: text; }
+.tm-screen { flex: 1; min-height: 0; padding: 10px 12px; color: #c8c8c8; font: 13px/1.5 "Courier New", "DL Pixel", monospace; overflow: auto; cursor: text; }
 .tm-out { margin: 0; white-space: pre-wrap; word-break: break-all; font: inherit; }
 .tm-form { display: flex; gap: 6px; align-items: center; }
 .tm-prompt, .tm-p { color: #6fdc6f; white-space: nowrap; }
@@ -270,26 +270,26 @@
 .tm-hi { color: #ffd76a; }
 .tm-dim { color: #888; }
 .tm-keys { display: none; gap: 4px; padding: 6px; background: #111; border-top: 1px solid #333; flex-wrap: wrap; }
-.tm-keys button { background: #222; color: #ddd; border: 1px solid #444; padding: 6px 10px; font: 13px "Courier New", monospace; border-radius: 3px; }
+.tm-keys button { background: #222; color: #ddd; border: 1px solid #444; padding: 6px 10px; font: 13px "Courier New", "DL Pixel", monospace; border-radius: 3px; }
 
 /* ================= admin.local ================= */
-.site-admin { background: #f0f0f0; color: #222; font: 12px/1.6 Verdana, Tahoma, "PMingLiU", sans-serif; min-height: 100%; }
+.site-admin { background: #f0f0f0; color: #222; font: 12px/1.6 Verdana, Tahoma, "DL Pixel", sans-serif; min-height: 100%; }
 .site-admin a { color: #8a1c1c; }
 .ad-login { display: flex; justify-content: center; padding: 50px 12px; background: #2b2b2b; min-height: 100%; }
 .ad-box { width: 360px; max-width: 100%; background: #f4f4f4; border: 1px solid #000; }
-.ad-head { background: #8a1c1c; color: #fff; padding: 12px 14px; font: bold 18px Georgia, serif; }
-.ad-head small { display: block; font: 11px Verdana, sans-serif; color: #f2c0c0; }
+.ad-head { background: #8a1c1c; color: #fff; padding: 12px 14px; font: bold 18px Georgia, "DL Pixel", serif; }
+.ad-head small { display: block; font: 11px Verdana, "DL Pixel", sans-serif; color: #f2c0c0; }
 .ad-body { padding: 14px; }
 .ad-form { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
-.ad-form input { height: 26px; border: 1px solid #888; padding: 1px 5px; font: 13px Verdana, sans-serif; }
+.ad-form input { height: 26px; border: 1px solid #888; padding: 1px 5px; font: 13px Verdana, "DL Pixel", sans-serif; }
 .ad-form .w-btn { align-self: flex-start; margin-top: 4px; }
 .ad-done { display: flex; gap: 8px; padding: 4px 0; border-bottom: 1px dotted #bbb; margin-bottom: 6px; }
 .ad-done span { width: 4em; color: #666; }
 .ad-done b { color: #2a7a2a; }
 .ad-foot { background: #ddd; padding: 8px 14px; font-size: 11px; color: #666; border-top: 1px solid #bbb; }
 .ad-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; background: #8a1c1c; color: #f2dede; padding: 8px 14px; }
-.ad-brand { font: bold 16px Georgia, serif; color: #fff; }
-.ad-brand small { font: 11px Verdana, sans-serif; color: #f2c0c0; }
+.ad-brand { font: bold 16px Georgia, "DL Pixel", serif; color: #fff; }
+.ad-brand small { font: 11px Verdana, "DL Pixel", sans-serif; color: #f2c0c0; }
 .ad-tabs { display: flex; flex-wrap: wrap; background: #ddd; border-bottom: 1px solid #aaa; }
 .ad-tabs a { padding: 6px 14px; text-decoration: none; color: #333; border-right: 1px solid #bbb; }
 .ad-tabs a.on { background: #f0f0f0; font-weight: bold; color: #8a1c1c; }
@@ -308,6 +308,36 @@
 .ad-note { margin-top: 16px; color: #8a1c1c; font-style: italic; }
 .ad-mail { margin: 12px 0; padding: 12px; background: #fff; border: 1px solid #ccc; }
 .ad-q { font-size: 14px; }
-.ad-q.big { font: bold 18px "PMingLiU", serif; color: #8a1c1c; }
+.ad-q.big { font: bold 18px "DL Pixel", serif; color: #8a1c1c; }
 .ad-warn { color: #a00; }
 .site-admin .wm-hdr { background: #fff; }
+
+/* ================= 隱藏頁面 ================= */
+.site-plain { background: #fff; color: #000; min-height: 100%; padding: 10px 14px; }
+.plain { margin: 0; font: 13px/1.6 "Courier New", "DL Pixel", monospace; white-space: pre-wrap; word-break: break-word; }
+.site-plain.white { color: #fff; }
+.sec-blank { color: #bbb; font: 13px Arial, "DL Pixel", sans-serif; padding: 40px 0; text-align: center; }
+.sec-hidden { color: #fff; line-height: 2; margin-top: 60vh; }
+.sec-hidden::selection { background: #000; color: #fff; }
+.site-imgview { background: #000; min-height: 100%; display: flex; align-items: center; justify-content: center; }
+.imgview { width: min(640px, 100%); }
+.imgview canvas { display: block; width: 100%; height: auto; aspect-ratio: 4/3; transition: transform 8s ease-in, filter 8s; }
+.imgview.stare canvas { transform: scale(1.6) translate(-12%, -2%); filter: contrast(1.4) brightness(1.3); }
+.site-v1 { background: #fff; color: #000; font: 16px "Times New Roman", "DL Pixel", serif; min-height: 100%; padding: 20px; }
+.site-v1 h1 { font-size: 30px; color: #0000a0; }
+.site-v1 a { color: #0000ee; }
+.site-kei { background: #ffe3ee repeating-linear-gradient(45deg, transparent 0 10px, rgba(255,255,255,.5) 10px 20px); color: #6a2340; min-height: 100%; padding: 24px 16px; font: 14px/2 Arial, "DL Pixel", sans-serif; }
+.kei-page { max-width: 520px; margin: 0 auto; background: #fff8fb; border: 3px double #e98cb0; padding: 20px 24px; }
+.kei-title { font: bold 26px "Comic Sans MS", Arial, "DL Pixel", sans-serif; color: #e0457f; text-align: center; }
+.kei-sub { text-align: center; color: #c48aa2; font-size: 12px; margin-bottom: 12px; }
+.kei-sign { text-align: right; }
+.kei-ps { color: #b07a90; font-size: 12px; }
+.bbs-table.dim td { color: #888; }
+
+/* 需要新視窗的頁面 */
+.popup-need { max-width: 420px; margin: 40px auto; background: #ffffe1; border: 1px solid #000; padding: 16px 18px; font: 12px/1.7 Tahoma, Arial, "DL Pixel", sans-serif; box-shadow: 2px 2px 0 #888; }
+.popup-need .pn-ico { width: 28px; height: 28px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffe27a, #d69a00); font: bold 18px Georgia, serif; display: flex; align-items: center; justify-content: center; float: left; margin-right: 10px; }
+.popup-need .w-btn { display: inline-block; text-decoration: none; color: #000; }
+.dn-post.ghost .gh-link { color: #ff6b6b; text-decoration: none; }
+.dn-post.ghost .gh-link:hover { text-decoration: underline; }
+.photo-dlg .dlg-btns a.w-btn { text-decoration: none; color: #000; }

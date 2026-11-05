@@ -15,6 +15,7 @@
       attempts: {},
       hintsUsed: {},
       flags: {},
+      secretsFound: [],
       settings: { sound: true, crt: true }
     };
   }

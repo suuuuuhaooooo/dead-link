@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="../assets/icons/favicon-32.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>　</title>
+<style>
+@font-face { font-family: "DL Pixel"; src: url("../assets/fonts/dl-pixel.woff") format("woff"); }
+html, body { margin: 0; height: 100%; background: #000; }
+body { color: #b9c6da; font: 16px/2.2 "Courier New", "DL Pixel", monospace; -webkit-font-smoothing: none; display: flex; align-items: center; justify-content: center; }
+.w { white-space: pre-wrap; padding: 24px; max-width: 560px; }
+.c { animation: b 1s steps(1) infinite; } @keyframes b { 50% { opacity: 0; } }
+</style>
+</head>
+<body>
+<!-- 你不應該在這裡。可是你來了。每個人都會來。 -->
+<div class="w"><span id="t"></span><span class="c">_</span></div>
+<script src="../js/side.js"></script>
+<script>
+Side.send('daniel', 'home-daniel');
+const lines = ['你打開了一個新的分頁。', '', '……', '', '我也打開了一個。', '', '從這裡，我看得到你的另一個分頁。', '你在那邊看我的日記、我的照片、我的信。', '', '回去吧。', '它在等你。'];
+const el = document.getElementById('t');
+let i = 0;
+(function next() {
+  if (i >= lines.length) return;
+  el.textContent += lines[i++] + '\n';
+  setTimeout(next, lines[i - 1] ? 900 : 400);
+})();
+const titles = ['　', '.', '..', '...', '我在這裡'];
+let k = 0; setInterval(() => { if (!document.hidden) document.title = titles[k++ % titles.length]; }, 1200);
+let left = false;
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { left = true; document.title = '我還在這裡'; }
+  else if (left) { el.textContent += '\n你回來了。\n你總是會回來。\n'; left = false; }
+});
+</script>
+</body>
+</html>

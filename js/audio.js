@@ -39,7 +39,7 @@
     const g = ctx.createGain();
     g.gain.setValueAtTime(0, t);
     g.gain.linearRampToValueAtTime(vol, t + 0.03);
-    g.gain.setValueAtTime(vol, t + dur - 0.05);
+    g.gain.setValueAtTime(vol, Math.max(t + 0.031, t + dur - 0.05));
     g.gain.linearRampToValueAtTime(0, t + dur);
     src.connect(f).connect(g).connect(out || master);
     src.start(t); src.stop(t + dur);
@@ -120,6 +120,12 @@
 
     unlock() { ensure(); }
   };
+
+  Object.keys(SFX).forEach(k => {
+    if (typeof SFX[k] !== 'function') return;
+    const fn = SFX[k];
+    SFX[k] = function () { try { return fn.apply(SFX, arguments); } catch (e) { return 0; } };
+  });
 
   window.SFX = SFX;
 })();

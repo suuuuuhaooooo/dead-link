@@ -74,7 +74,7 @@ ${body}
     <div class="ms-sec">對話紀錄</div>
     <a href="#" data-go="${C}/log/1120">2004/11/20 與 kei☆</a>
     <a href="#" data-go="${C}/log/1122">2004/11/22 與 kei☆</a>
-    <a href="#" data-go="${C}/log/1123">2004/11/23 與 kei☆ ${solved('p4c') ? '' : '🔒'}</a>
+    <a href="#" data-go="${C}/log/1123">2004/11/23 與 kei☆ ${solved('p4c') ? '' : '（封存）'}</a>
     <div class="ms-sec">離線訊息</div>
     <a href="#" data-go="${C}/offline">離線訊息 (3)</a>
   </td>
@@ -85,7 +85,7 @@ ${body}
   function logView(id) {
     const L = LOGS[id];
     const rows = L.lines.map(([t, who, txt]) => `<div class="ms-line"><span class="t">[${t}]</span> <b class="${who === 'kei☆' ? 'k' : 'd'}">${who}</b>：${txt}</div>`).join('');
-    return `<div class="ms-logh">對話紀錄：${L.date}　dan_0817 ↔ kei☆<br><span class="dn-small">※ 紀錄時間為伺服器時間（UTC+0）</span></div>
+    return `<div class="ms-logh">對話紀錄：${L.date}　dan_0817 與 kei☆<br><span class="dn-small">※ 紀錄時間為伺服器時間（UTC+0）</span></div>
 <div class="ms-log"${id === '1123' ? ' data-clue="chat-last"' : ''}>${rows}${id === '1123' ? '<div class="ms-sys">*** dan_0817 已離線 ***<br>*** 紀錄於此中斷 ***</div>' : '<div class="ms-sys">*** 對話結束 ***</div>'}</div>`;
   }
 
@@ -93,7 +93,8 @@ ${body}
     '': {
       render(ctx) {
         if (!solved('p4b')) return loginPage();
-        return { title: 'OldNet Messenger', html: shell(`<div class="ms-welcome">歡迎回來，dan_0817。<br><span class="dn-small">上次登入：2004/11/23 15:58（UTC）</span><br><br>你有 3 則離線訊息。</div>`) };
+        return { title: 'OldNet Messenger', html: shell(`<!-- logs: 1120, 1122, 1123, 1128 (participant: "." — hidden from list) -->
+<div class="ms-welcome">歡迎回來，dan_0817。<br><span class="dn-small">上次登入：2004/11/23 15:58（UTC）</span><br><br>你有 3 則離線訊息。</div>`) };
       }
     },
     offline: {
@@ -113,7 +114,7 @@ ${body}
         if (!solved('p4b')) return loginPage();
         const L = LOGS[id];
         if (L.sealed && !solved('p4c')) {
-          return { title: 'OldNet Messenger - 封存紀錄', html: shell(`<div class="ms-logh">對話紀錄：${L.date}　dan_0817 ↔ kei☆</div>
+          return { title: 'OldNet Messenger - 封存紀錄', html: shell(`<div class="ms-logh">對話紀錄：${L.date}　dan_0817 與 kei☆</div>
 <div class="ms-sealed">此紀錄已由 kei☆ 於 2004/11/27 封存。
 <form data-form="puzzle" data-pid="p4c" class="bbs-form"><label>封存密碼：</label><input type="text" name="answer" autocomplete="off" autocapitalize="off" spellcheck="false"> <button class="w-btn small" type="submit">開啟</button><div class="wm-msg" data-msg></div></form></div>`) };
         }

@@ -13,7 +13,7 @@
   }
 
   function loginPage() {
-    const done = (id, label, val) => `<div class="ad-done"><span>${label}</span><b>${val}</b> ✔</div>`;
+    const done = (id, label, val) => `<div class="ad-done"><span>${label}</span><b>${val}</b> <span class="ok">（正確）</span></div>`;
     let body = '';
     if (solved('p6d')) body += done('p6d', '帳號', 'keeper');
     if (solved('p6e')) body += done('p6e', '密碼', '••••••••••••••');
@@ -58,6 +58,7 @@
 <tr><th>主程序</th><td>keeper.pl（PID 817）</td></tr>
 <tr><th>網站管理員</th><td>daniel（已停用）、keeper</td></tr>
 </table>
+<!-- 訪客名單：/visitors -->
 <p class="ad-note">網站一直都在。<br>只是需要有人看著它。</p>`) }));
       }
     },

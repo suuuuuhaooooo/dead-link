@@ -92,6 +92,7 @@
       render(ctx) {
         const rows = Object.entries(BOARDS).map(([k, b]) => `<tr><td class="bbs-bico">■</td><td><a href="#" data-go="${B}/board/${k}"><b>${b.name}</b></a><div class="dn-small">${b.desc}</div></td><td class="c">${b.threads.length}</td></tr>`).join('');
         return { html: page(ctx, `<!-- guest access enabled by kei 2004/11/23 21:38 -->
+<!-- boards: news, chat, web, dot (hidden) -->
 <table class="bbs-table" cellspacing="1"><tr><th colspan="2">討論區</th><th>主題</th></tr>${rows}</table>
 <div class="bbs-note">★ 訪客可以閱讀所有文章，但不能發文。</div>`) };
       }
@@ -108,7 +109,8 @@
       title: '深夜論壇 - 作者「.」的文章',
       render(ctx) {
         const rec = DOT_RECENT.slice().reverse().map(([d, t]) => `<tr><td class="c">${d}</td><td class="bbs-morse">${t}</td></tr>`).join('');
-        return { html: page(ctx, `<div class="bbs-crumb">作者「.」的文章　共 462 篇　（最新的在最上面）</div>
+        return { html: page(ctx, `<!-- profile: /user/keeper (deleted) -->
+<div class="bbs-crumb">作者「.」的文章　共 462 篇　（最新的在最上面）</div>
 <table class="bbs-table" cellspacing="1" data-clue="bbs-morse"><tr><th>發表時間</th><th>內容</th></tr>${rec}
 <tr><td class="c dn-small">2004/11/15 03:47<br>⋮<br>2003/08/18 03:47</td><td class="bbs-morse">.<br>⋮<br>.</td></tr></table>
 <div class="bbs-note">更早的 455 篇文章內容都只有「.」。每天一篇，從沒漏過。</div>`) };

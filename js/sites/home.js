@@ -5,7 +5,7 @@
   function nav(active) {
     const items = [['', '首頁', 'index'], ['diary', '日記', 'diary'], ['photos', '相簿', 'photos'], ['guestbook', '留言板', 'guestbook'], ['about', '關於我', 'about'], ['links', '好站連結', 'links']];
     return items.map(([p, label, file]) =>
-      `<a href="${file}.html" data-go="${H}/${p}"${p === active ? ' class="cur"' : ''}>${p === active ? '▶ ' : '・'}${label}</a>`
+      `<a href="${file}.html" data-go="${H}/${p}"${p === active ? ' class="cur"' : ''}>${p === active ? '► ' : '・'}${label}</a>`
     ).join('\n      ');
   }
 
@@ -26,7 +26,7 @@ ${inner}
     </td>
   </tr>
 </table>
-<div class="dn-foot">© 2003-2004 Daniel. All rights reserved. ｜ <a href="mailto:daniel@oldnet.local" data-go="mail.local/">站長信箱登入</a> ｜ Powered by Notepad</div>`;
+<div class="dn-foot">(C) 2003-2004 Daniel. All rights reserved. ｜ <a href="mailto:daniel@oldnet.local" data-go="mail.local/">站長信箱登入</a> ｜ Powered by Notepad</div>`;
   }
 
   const pages = {
@@ -40,6 +40,7 @@ ${inner}
         const cnt = (end ? '001130' : '001129').split('').map(d => `<i>${d}</i>`).join('');
         const inner = `
 <!-- Daniel's Room v2.1 / made with Notepad -->
+<!-- 給搜尋引擎：請先讀 /robots.txt -->
 <!-- lastmod 是我手動改的。系統時間不會說謊，檔名也不會。 -->
 <h2 class="dn-h">最新消息</h2>
 <p class="dn-update">最後更新：<b>${upd}</b></p>
@@ -113,6 +114,7 @@ ${inner}
     </td>`).join('');
         const inner = `
 <!-- 相機：Cyber-shot 2.0MP。檔名是相機自己取的，我懶得改。 -->
+<!-- 大圖直接放在 /photos/檔名.jpg -->
 <h2 class="dn-h">相簿</h2>
 <p class="dn-small">點一下縮圖可以看大圖。撥接的朋友請耐心等候 ^^"</p>
 <table class="dn-gallery" cellspacing="6"><tr>${cells}
@@ -134,11 +136,11 @@ ${inner}
           ['2004/11/24 23:40', 'kei', '你從昨天晚上就沒有再上線了。<br>你跟我說的那些，是真的嗎？', '', ''],
           ['2004/09/14 20:05', '路人甲', '背景音樂好吵XDDD 可以關掉嗎', '', ''],
           ['2004/06/03 10:21', 'mika', '網聚超好玩～照片拍得好好看！下次還要約！', '', ''],
-          ['2003/08/18 00:03', 'kei', '恭喜開站！！！第一個留言是我的 ✌', '', '']
+          ['2003/08/18 00:03', 'kei', '恭喜開站！！！第一個留言是我的 ', '', '']
         ];
         const rows = posts.map(([d, n, t, clue, cls]) => `
 <table class="dn-post ${cls}" cellspacing="0">
-  <tr><td class="who">${n}</td><td class="when">${d}</td></tr>
+  <tr><td class="who">${cls === 'ghost' ? `<a href="${RealURL.file('home.local/daniel.html')}" target="_blank" rel="opener" class="gh-link" data-side="home.local/daniel.html">${n}</a>` : n}</td><td class="when">${d}</td></tr>
   <tr><td colspan="2" class="msg"${clue ? ` data-clue="${clue}"` : ''}>${t}</td></tr>
 </table>`).join('');
         const inner = `

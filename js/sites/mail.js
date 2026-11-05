@@ -119,6 +119,7 @@
           return {
             title: 'OldNet Webmail - 收件匣',
             html: shell('inbox', `<div class="wm-bar"><b>收件匣</b>　共 4 封郵件</div>${list(rows)}
+<!-- folders: inbox, drafts, sent, archive, trash, outbox(hidden) -->
 <!-- msg_count=4 / rendered=${rows.length}${rows.length < 4 ? ' / filter: hide where body contains "bbs.local" (owner: k*****)' : ''} -->`)
           };
         });

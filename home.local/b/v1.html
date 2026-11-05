@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="../../assets/icons/favicon-32.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to Daniel's Homepage!!</title>
+<style>
+@font-face { font-family: "DL Pixel"; src: url("../../assets/fonts/dl-pixel.woff") format("woff"); }
+body { background: #fff; color: #000; font: 16px "Times New Roman", "DL Pixel", serif; -webkit-font-smoothing: none; margin: 8px; }
+h1 { color: #0000a0; font-size: 30px; }
+a { color: #0000ee; }
+blink, .blink { animation: b 1s steps(1) infinite; } @keyframes b { 50% { visibility: hidden; } }
+</style>
+</head>
+<body>
+<!-- 第一版。2003/08/17。今天開始 keeper 幫我顧家。 -->
+<center>
+<h1>Welcome to Daniel's Homepage!!</h1>
+<p>歡迎來到我的首頁！！</p>
+<marquee width="60%">☆ 這是我的第一個網站 ☆ 請多指教 ☆</marquee>
+<hr width="60%">
+<p><b class="blink">This page is under construction.</b><br>本站施工中，敬請期待</p>
+<p>你是第 <b id="c">000001</b> 位訪客</p>
+<p><a href="#">日記（還沒寫）</a> ｜ <a href="#">相簿（還沒拍）</a> ｜ <a href="#">留言板（還沒做）</a></p>
+<hr width="60%">
+<p><small>最後更新：2003/08/17　｜　E-mail：daniel@oldnet.local</small></p>
+<p><small>本網站由 keeper.pl 每日自動維護</small></p>
+</center>
+<script src="../../js/side.js"></script>
+<script>
+Side.send('v1', 'home-v1');
+// 計數器會慢慢爬到它停住的地方
+let n = 1; const el = document.getElementById('c');
+const t = setInterval(() => {
+  n += Math.max(1, Math.floor((1129 - n) / 12));
+  if (n >= 1129) { n = 1129; clearInterval(t); document.title = '001129'; }
+  el.textContent = String(n).padStart(6, '0');
+}, 120);
+</script>
+</body>
+</html>

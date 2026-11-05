@@ -79,7 +79,7 @@
     <tr><th>拍攝日期</th><td>${p.date}</td></tr>
     <tr><th>說明</th><td>${p.caption || '<span class="muted">（無）</span>'}</td></tr>
   </table>
-  <div class="dlg-btns"><button class="w-btn primary" data-v="__close">關閉</button></div>
+  <div class="dlg-btns">${p.id === '1129' ? `<a class="w-btn" href="${RealURL.file('home.local/photos/dsc_1129_0347.html')}" target="_blank" rel="opener" data-side="home.local/photos/dsc_1129_0347.html">以原始大小開啟（新視窗）</a>` : ''}<button class="w-btn primary" data-v="__close">關閉</button></div>
 </div>`;
       layer().appendChild(wrap);
       Photos.draw(wrap.querySelector('canvas'), p.id);

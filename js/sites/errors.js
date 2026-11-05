@@ -29,6 +29,7 @@ window.ErrorPages = {
 You found the wrong page.
 Try looking where it all began.
 -->
+<!-- 迷路的時候，大部分網站都有一份 robots.txt。 -->
 <div class="ie-err">
   <div class="ie-err-head"><span class="ie-err-ico warn">!</span><h1>找不到網頁</h1></div>
   <p>您要尋找的網頁 <b>/${path}</b> 可能已被移除、名稱已變更，或暫時無法使用。</p>

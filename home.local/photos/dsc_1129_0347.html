@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="../../assets/icons/favicon-32.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dsc_1129_0347.jpg (640×480 像素)</title>
+<style>
+html, body { margin: 0; height: 100%; background: #0e0e0e; }
+body { display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.wrap { width: min(640px, 100vw); overflow: hidden; }
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 4/3; transition: transform 14s ease-in, filter 14s; transform-origin: 70% 52%; }
+.stare canvas { transform: scale(2.6); filter: contrast(1.5) brightness(1.5); }
+</style>
+</head>
+<body>
+<!-- 原始檔。沒有縮過。 -->
+<div class="wrap" id="w"><canvas id="cv"></canvas></div>
+<script src="../../js/photos.js"></script>
+<script src="../../js/side.js"></script>
+<script>
+Photos.draw(document.getElementById('cv'), '1129');
+Side.send('photo', 'home-photo');
+setTimeout(() => document.getElementById('w').classList.add('stare'), 5000);
+setTimeout(() => { document.title = '……'; }, 15000);
+setTimeout(() => { document.title = '你看到了嗎'; }, 22000);
+</script>
+</body>
+</html>

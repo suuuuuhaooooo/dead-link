@@ -4,7 +4,39 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1530">
-<title>PROJECT: DEAD LINK</title>
+<title>PROJECT: DEAD LINK 死亡連結</title>
+
+<!-- ===== 網站資訊（換網址時，只要改這一區的 https://suuuuuhaooooo.github.io/dead-link/） ===== -->
+<meta name="description" content="2004 年 11 月 23 日之後，Daniel 的個人網站再也沒有更新。多年後，你收到一封沒有寄件者的信。打開復古瀏覽器，在個人網站、信箱、論壇、聊天室、FTP 與終端機之間交叉比對線索，找出是誰一直在維護這個網站。">
+<meta name="keywords" content="解謎遊戲,網頁遊戲,ARG,復古網路,網路恐怖,千禧年,懸疑,PROJECT DEAD LINK,死亡連結">
+<meta name="author" content="@suuuuuhaooooo">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://suuuuuhaooooo.github.io/dead-link/">
+
+<!-- 分享連結時的縮圖與標題（Threads、Facebook、LINE、Discord…） -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PROJECT: DEAD LINK">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://suuuuuhaooooo.github.io/dead-link/">
+<meta property="og:title" content="PROJECT: DEAD LINK 死亡連結｜你還記得這個網站嗎？">
+<meta property="og:description" content="2004 年 11 月 23 日之後，Daniel 的個人網站再也沒有更新。多年後，你收到一封沒有寄件者的信。打開復古瀏覽器，在個人網站、信箱、論壇、聊天室、FTP 與終端機之間交叉比對線索，找出是誰一直在維護這個網站。">
+<meta property="og:image" content="https://suuuuuhaooooo.github.io/dead-link/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PROJECT: DEAD LINK — 復古瀏覽器視窗裡的遊戲標題">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PROJECT: DEAD LINK 死亡連結">
+<meta name="twitter:description" content="2004 年 11 月 23 日之後，Daniel 的個人網站再也沒有更新。多年後，你收到一封沒有寄件者的信。打開復古瀏覽器，在個人網站、信箱、論壇、聊天室、FTP 與終端機之間交叉比對線索，找出是誰一直在維護這個網站。">
+<meta name="twitter:image" content="https://suuuuuhaooooo.github.io/dead-link/assets/og-image.png">
+
+<!-- 網頁圖示 -->
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" id="favicon">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-title" content="DEAD LINK">
+<meta name="application-name" content="DEAD LINK">
 <!--
   ARCHIVE NO. 2003-0817 · ACCESS RESTRICTED
   如果你是從這裡開始找答案的——很好。但真正的原始碼在遊戲裡面。
@@ -88,14 +120,14 @@
       <span data-act="help">說明(<u>H</u>)</span>
     </div>
     <div class="toolbar">
-      <button class="tb" data-act="back" title="上一頁"><span class="ico">◀</span><span class="lbl">上一頁</span></button>
-      <button class="tb" data-act="fwd" title="下一頁"><span class="ico">▶</span></button>
+      <button class="tb" data-act="back" title="上一頁"><span class="ico tri l"></span><span class="lbl">上一頁</span></button>
+      <button class="tb" data-act="fwd" title="下一頁"><span class="ico tri r"></span></button>
       <button class="tb" data-act="reload" title="重新整理"><span class="ico">↻</span></button>
       <button class="tb" data-act="home" title="首頁"><span class="ico">⌂</span><span class="lbl">首頁</span></button>
       <span class="tb-sep"></span>
       <button class="tb" data-act="source" title="檢視原始碼"><span class="ico">&lt;/&gt;</span><span class="lbl">原始碼</span></button>
       <select id="site-select" class="mobile-only" aria-label="網站"></select>
-      <button class="tb mobile-only" data-act="notes-toggle" title="筆記本"><span class="ico">✎</span><span class="badge" id="badge-m">0</span></button>
+      <button class="tb mobile-only" data-act="notes-toggle" title="筆記本"><span class="ico txt">筆記</span><span class="badge" id="badge-m">0</span></button>
       <span class="tb-flex"></span>
       <span class="throbber" id="throbber"></span>
     </div>
@@ -148,7 +180,7 @@
       <div class="end-author">
         <div>企劃・劇本・製作</div>
         <a data-author="threads" target="_blank" rel="noopener" class="end-link">Threads　@suuuuuhaooooo</a>
-        <a data-author="support" target="_blank" rel="noopener" class="end-link support">☕ 贊助作者</a>
+        <a data-author="support" target="_blank" rel="noopener" class="end-link support">贊助作者</a>
       </div>
       <div class="end-actions">
         <button class="w-btn" onclick="App.afterEnding('site')">回到網站</button>
@@ -162,6 +194,7 @@
 <div id="modal-layer"></div>
 <div id="toast" class="toast" hidden></div>
 
+<script src="js/realurl.js"></script>
 <script src="js/state.js"></script>
 <script src="js/audio.js"></script>
 <script src="js/data/clues.js"></script>
@@ -177,6 +210,7 @@
 <script src="js/sites/ftp.js"></script>
 <script src="js/sites/terminal.js"></script>
 <script src="js/sites/admin.js"></script>
+<script src="js/sites/secrets.js"></script>
 <script src="js/router.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/app.js"></script>

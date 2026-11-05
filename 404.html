@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTTP 404 - 找不到檔案</title>
+<script>
+/* GitHub Pages 找不到檔案時會回傳這一頁。
+   如果網址長得像遊戲裡的位址（例如 /dead-link/home.local/diary），就把玩家送回遊戲的同一頁。 */
+(function () {
+  var parts = location.pathname.split('/').filter(Boolean);
+  var i = -1;
+  for (var k = 0; k < parts.length; k++) { if (/\.local$/.test(parts[k])) { i = k; break; } }
+  var base = '/' + (i > 0 ? parts.slice(0, i).join('/') + '/' : (location.hostname.slice(-10) === 'github.io' && parts.length && i !== 0 ? parts[0] + '/' : ''));
+  window.GAME_BASE = base;
+  if (i >= 0) {
+    var route = parts.slice(i).join('/') + (location.pathname.slice(-1) === '/' ? '/' : '');
+    location.replace(base + '?r=' + encodeURIComponent(route));
+  }
+})();
+</script>
+<style>
+body { margin: 0; background: #fff; color: #000; font: 12px/1.6 Tahoma, Arial, sans-serif; padding: 18px 22px; -webkit-font-smoothing: none; }
+.head { display: flex; align-items: center; gap: 12px; }
+.ico { flex: 0 0 32px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font: bold 20px Georgia, serif; background: radial-gradient(circle at 35% 30%, #ffe27a, #d69a00); }
+h1 { font: bold 18px Tahoma, Arial, sans-serif; margin: 0; }
+hr { border: 0; border-top: 1px solid #b8b5a6; margin: 12px 0; }
+a { color: #00c; }
+.code { color: #666; margin-top: 18px; }
+.box { max-width: 560px; }
+</style>
+</head>
+<body>
+<!--
+You found the wrong page.
+Try looking where it all began.
+-->
+<div class="box">
+  <div class="head"><span class="ico">!</span><h1>找不到網頁</h1></div>
+  <p>您要尋找的網頁可能已被移除、名稱已變更，或暫時無法使用。</p>
+  <hr>
+  <ul>
+    <li>確認網址列中的網址拼寫正確。</li>
+    <li>開啟 <a id="home" href="/">首頁</a>，然後尋找您要的資訊連結。</li>
+    <li>遊戲裡的位址也可以直接打在這裡，例如 <b>…/home.local/diary</b>。</li>
+  </ul>
+  <p class="code">HTTP 404 - 找不到檔案<br>Dead Link Browser</p>
+</div>
+<script>document.getElementById('home').href = window.GAME_BASE || '/';</script>
+</body>
+</html>
