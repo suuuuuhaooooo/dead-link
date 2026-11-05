@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1530">
+<title>PROJECT: DEAD LINK</title>
+<!--
+  ARCHIVE NO. 2003-0817 · ACCESS RESTRICTED
+  如果你是從這裡開始找答案的——很好。但真正的原始碼在遊戲裡面。
+  （瀏覽器上方的「原始碼」按鈕）
+-->
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/sites.css">
+<link rel="stylesheet" href="css/effects.css">
+<link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+<div id="crt" class="crt-overlay" aria-hidden="true"></div>
+
+<!-- ===== 標題畫面 ===== -->
+<section id="screen-title" class="screen screen-title">
+  <div class="title-box">
+    <div class="archive" id="title-archive">ARCHIVE NO. 2003-0817 · ACCESS RESTRICTED</div>
+    <h1 class="glitch" data-text="PROJECT: DEAD LINK">PROJECT: DEAD LINK</h1>
+    <div class="subtitle">死 亡 連 結</div>
+    <div class="tagline">THE INTERNET NEVER FORGETS.<span class="cursor">_</span></div>
+    <div class="title-actions">
+      <button class="w-btn big" id="btn-continue" hidden>繼續調查</button>
+      <button class="w-btn big" id="btn-new">開始調查</button>
+    </div>
+    <div class="title-note">建議配戴耳機　·　全 7 章　·　約 90～150 分鐘</div>
+    <div class="title-credit">作者 <a data-author="threads" target="_blank" rel="noopener">@suuuuuhaooooo</a>　·　<a data-author="support" target="_blank" rel="noopener">贊助作者</a></div>
+  </div>
+</section>
+
+<!-- ===== 撥接連線 ===== -->
+<section id="screen-boot" class="screen screen-desk" hidden>
+  <div class="xp-window dial-window">
+    <div class="xp-title"><span class="xp-title-text">連線到 OLDNET</span><span class="xp-title-btns"><i>_</i><i class="x">×</i></span></div>
+    <div class="xp-body">
+      <div class="dial-anim"><span class="pc"></span><span class="dots"><i></i><i></i><i></i><i></i><i></i></span><span class="globe"></span></div>
+      <div id="dial-status" class="dial-status">正在初始化數據機...</div>
+      <div class="w-progress"><div id="dial-bar"></div></div>
+      <pre id="dial-log" class="dial-log"></pre>
+      <div class="dial-actions"><button class="w-btn" id="btn-skip">略過</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 序章：匿名來信 ===== -->
+<section id="screen-prologue" class="screen screen-desk" hidden>
+  <div class="xp-window mail-window">
+    <div class="xp-title"><span class="xp-title-text">you shouldn't have opened this. - OldMail Express</span><span class="xp-title-btns"><i>_</i><i>□</i><i class="x">×</i></span></div>
+    <div class="om-head">
+      <div><b>寄件者：</b><span class="om-unknown">（無寄件者資訊）</span></div>
+      <div><b>日期：</b><span id="prologue-date"></span></div>
+      <div><b>收件者：</b>你</div>
+      <div><b>主旨：</b>you shouldn't have opened this.</div>
+    </div>
+    <div class="om-body">
+      <p>你還記得這個網站嗎？</p>
+      <p>如果你看得到這封信，代表它又開始運作了。</p>
+      <p>不要相信首頁顯示的日期。</p>
+      <p>尤其不要打開最後一封郵件。</p>
+      <p class="om-link"><a href="#" id="prologue-link">http://home.local/</a></p>
+      <p class="om-sig">--<br>這封郵件由系統自動寄出。請勿回覆。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 遊戲內瀏覽器 ===== -->
+<section id="screen-browser" class="screen screen-desk" hidden>
+  <div class="xp-window browser" id="browser">
+    <div class="xp-title">
+      <span class="xp-title-text"><span class="b-icon"></span><span id="win-title">DEAD LINK BROWSER v1.0</span></span>
+      <span class="xp-title-btns">
+        <button class="tbtn" data-act="min" aria-label="最小化">_</button>
+        <button class="tbtn" data-act="max" aria-label="最大化">□</button>
+        <button class="tbtn x" data-act="close" aria-label="關閉">×</button>
+      </span>
+    </div>
+    <div class="menubar">
+      <span data-act="menu-file">檔案(<u>F</u>)</span>
+      <span data-act="source">檢視原始碼(<u>V</u>)</span>
+      <span data-act="notes-toggle" class="desk-only">筆記本(<u>N</u>)</span>
+      <span data-act="settings">工具(<u>T</u>)</span>
+      <span data-act="help">說明(<u>H</u>)</span>
+    </div>
+    <div class="toolbar">
+      <button class="tb" data-act="back" title="上一頁"><span class="ico">◀</span><span class="lbl">上一頁</span></button>
+      <button class="tb" data-act="fwd" title="下一頁"><span class="ico">▶</span></button>
+      <button class="tb" data-act="reload" title="重新整理"><span class="ico">↻</span></button>
+      <button class="tb" data-act="home" title="首頁"><span class="ico">⌂</span><span class="lbl">首頁</span></button>
+      <span class="tb-sep"></span>
+      <button class="tb" data-act="source" title="檢視原始碼"><span class="ico">&lt;/&gt;</span><span class="lbl">原始碼</span></button>
+      <select id="site-select" class="mobile-only" aria-label="網站"></select>
+      <button class="tb mobile-only" data-act="notes-toggle" title="筆記本"><span class="ico">✎</span><span class="badge" id="badge-m">0</span></button>
+      <span class="tb-flex"></span>
+      <span class="throbber" id="throbber"></span>
+    </div>
+    <form class="addressbar" id="addr-form" autocomplete="off">
+      <label for="addr">網址(<u>D</u>)</label>
+      <input id="addr" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="go">
+      <button class="w-btn small" type="submit">移至</button>
+    </form>
+    <div class="browser-main">
+      <aside class="sidebar" id="sidebar">
+        <div class="side-head">我的最愛</div>
+        <ul id="site-list" class="side-list"></ul>
+        <div class="side-head">歷史紀錄</div>
+        <ul id="history-list" class="side-list hist"></ul>
+      </aside>
+      <main class="viewport" id="viewport"><div class="page" id="page"></div></main>
+      <aside class="notebook" id="notebook">
+        <div class="nb-title">調查筆記本<button class="nb-close mobile-only" data-act="notes-toggle">關閉 ×</button></div>
+        <div class="nb-tabs">
+          <button data-tab="goal" class="on">目標</button>
+          <button data-tab="clues">線索 <b id="clue-count">0</b></button>
+          <button data-tab="notes">筆記</button>
+        </div>
+        <div class="nb-panel" data-panel="goal" id="goal-panel"></div>
+        <div class="nb-panel" data-panel="clues" hidden><ul id="clue-list" class="clue-list"></ul></div>
+        <div class="nb-panel" data-panel="notes" hidden>
+          <textarea id="notes" placeholder="在這裡寫下你的推理……（自動儲存）"></textarea>
+        </div>
+      </aside>
+    </div>
+    <div class="statusbar">
+      <span class="st-text" id="status-text">完成</span>
+      <span class="st-prog"><i id="status-bar"></i></span>
+      <span class="st-cell st-zone">● 網際網路</span>
+      <span class="st-cell st-modem">56K 撥接</span>
+      <span class="st-cell st-clock" id="clock"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 結局 ===== -->
+<section id="screen-ending" class="screen screen-ending" hidden>
+  <div class="end-box">
+    <pre id="end-log" class="end-log"></pre>
+    <div id="end-credits" class="end-credits" hidden>
+      <div class="end-tag">THE INTERNET NEVER FORGETS.</div>
+      <h2>PROJECT: DEAD LINK</h2>
+      <div class="end-sub">死 亡 連 結　·　感謝遊玩</div>
+      <div class="end-stats" id="end-stats"></div>
+      <div class="end-author">
+        <div>企劃・劇本・製作</div>
+        <a data-author="threads" target="_blank" rel="noopener" class="end-link">Threads　@suuuuuhaooooo</a>
+        <a data-author="support" target="_blank" rel="noopener" class="end-link support">☕ 贊助作者</a>
+      </div>
+      <div class="end-actions">
+        <button class="w-btn" onclick="App.afterEnding('site')">回到網站</button>
+        <button class="w-btn" onclick="App.afterEnding('title')">回到標題</button>
+      </div>
+      <div class="end-note">網站還在運作。有些事情，它到現在都還沒告訴你。</div>
+    </div>
+  </div>
+</section>
+
+<div id="modal-layer"></div>
+<div id="toast" class="toast" hidden></div>
+
+<script src="js/state.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/data/clues.js"></script>
+<script src="js/data/chapters.js"></script>
+<script src="js/data/puzzles.js"></script>
+<script src="js/photos.js"></script>
+<script src="js/puzzle-engine.js"></script>
+<script src="js/sites/errors.js"></script>
+<script src="js/sites/home.js"></script>
+<script src="js/sites/mail.js"></script>
+<script src="js/sites/bbs.js"></script>
+<script src="js/sites/chat.js"></script>
+<script src="js/sites/ftp.js"></script>
+<script src="js/sites/terminal.js"></script>
+<script src="js/sites/admin.js"></script>
+<script src="js/router.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
